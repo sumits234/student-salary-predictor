@@ -8,6 +8,8 @@ A machine learning web app to predict the salary package (CTC/LPA) a student can
 - HTML + CSS 🎨
 - Sklearn + Pandas + Matplotlib 📊
 - Machine Learning (Linear Regression, Random Forest, etc.)
+## Deploy 🎯
+https://student-salary-predictor.onrender.com/
 
 ## 📦 How to Run
 
@@ -18,5 +20,5 @@ python -m venv venv
 source venv/bin/activate  # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
 python app.py
-## Deploy 🎯
-https://student-salary-predictor.onrender.com/
+
+
