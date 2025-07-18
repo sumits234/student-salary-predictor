@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salary Predictor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #444;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #f1f1f1;
+      font-size: 16px;
+    }
+
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #7FC9FF;
+    }
+
+    button {
+      padding: 12px 25px;
+      background: #5C6BC0;
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #3f51b5;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #666;
+      margin-top: -15px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .result {
+      margin-top: 25px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #2e7d32;
+      background: #e8f5e9;
+      padding: 15px;
+      border-radius: 10px;
+      animation: popIn 0.5s ease-in-out;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Salary Predictor</h1>
+    <form action="/predict" method="post">
+      <label for="CGPA">CGPA (e.g. 7.5)</label>
+      <input type="text" name="CGPA" placeholder="Enter your CGPA" required />
+
+      <label for="Internships">Internships (e.g. 2)</label>
+      <input type="text" name="Internships" placeholder="Number of internships done" required />
+
+      <label for="Projects">Projects (e.g. 3)</label>
+      <input type="text" name="Projects" placeholder="Number of major projects" required />
+
+      <label for="Workshops">Workshops/Certifications (e.g. 4)</label>
+      <input type="text" name="Workshops" placeholder="Certifications or workshops attended" required />
+
+      <label for="AptitudeTestScore">Aptitude Test Score (e.g. 85)</label>
+      <input type="text" name="AptitudeTestScore" placeholder="Your aptitude test percentage" required />
+
+      <label for="SoftSkills">Soft Skills Rating (1 to 10)</label>
+      <input type="text" name="SoftSkills" placeholder="Rate your soft skills out of 10" required />
+
+      <label for="Extracurricular">Extracurricular Activities (e.g. 5)</label>
+      <input type="text" name="Extracurricular" placeholder="Involvement in extracurriculars" required />
+
+      <label for="PlacementTraining">Placement Training (0 or 1)</label>
+      <input type="text" name="PlacementTraining" placeholder="Did you attend training? 1 = Yes, 0 = No" required />
+
+      <button type="submit">Predict My Salary</button>
+    </form>
+
+    {% if salary %}
+    <div class="result">
+      🎉 Congratulations!<br>
+      Your Predicted Salary is ₹ {{ salary }} LPA
+    </div>
+    {% endif %}
+  </div>
+</body>
+
+</html>
