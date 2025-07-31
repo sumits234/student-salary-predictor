@@ -28,7 +28,7 @@ instance/
 .env
 
 # Model artifacts
-*.pkl
+
 *.h5
 *.joblib
 *.sav
